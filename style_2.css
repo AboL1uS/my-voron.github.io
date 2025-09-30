@@ -1,0 +1,118 @@
+/* Минималистично-мрачный стиль */
+:root{
+  --bg1: #050505;
+  --bg2: #0f0f10;
+  --accent: #9aa3b2;
+  --glow: rgba(120, 95, 255, 0.06);
+}
+
+/* Базовые */
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: radial-gradient(ellipse at center, #070708 0%, #020202 70%);
+  color: #d6dbe0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Центрирование контента по вертикали и горизонтали */
+main.center{
+  min-height: calc(100vh - 80px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  padding:40px 20px;
+  text-align:center;
+}
+
+/* Обёртка гифки — мягкая подсветка */
+.gif-wrapper{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.65), 0 0 60px rgba(0,0,0,0.6) inset;
+  border: 1px solid rgba(255,255,255,0.03);
+  display:inline-block;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+/* Эффект при наведении — чуть поднимается и подсветка */
+.gif-wrapper:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.75), 0 0 90px rgba(90,20,120,0.08) inset;
+}
+
+/* Размер гифки — адаптивный, но большой */
+.raven-gif{
+  display:block;
+  max-width: 88vw;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+  filter: contrast(1.05) saturate(.85) brightness(.98);
+}
+
+/* Заголовок и подпись */
+.title{
+  margin: 0;
+  font-size: 2.4rem;
+  letter-spacing: 0.6px;
+  color: #e6e9ef;
+  text-shadow:
+    0 6px 22px rgba(0,0,0,0.7),
+    0 2px 6px rgba(90,20,120,0.04);
+}
+
+.subtitle{
+  margin: 0;
+  color: #9ba4b1;
+  font-size: 1rem;
+}
+
+/* Кредит и ссылка */
+.credit{
+  font-size: 0.9rem;
+  color: #7f8a95;
+}
+.credit a{
+  color: #b4c6ff;
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(180,198,255,0.12);
+}
+.credit a:hover{
+  color: #e6eaff;
+  border-bottom-color: rgba(180,198,255,0.3);
+}
+
+/* Подвал */
+.footer{
+  height: 80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#666f79;
+  font-size:0.9rem;
+  border-top: 1px solid rgba(255,255,255,0.02);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+}
+
+/* Мобильная адаптация */
+@media (max-width:640px){
+  .title{ font-size:1.6rem; }
+  .raven-gif{ max-height: 50vh; }
+  .gif-wrapper{ padding:12px; }
+  main.center{ padding: 20px 12px 100px 12px;}
+  .footer{ height: 64px; font-size:0.85rem;}
+}
